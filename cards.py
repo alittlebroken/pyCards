@@ -114,9 +114,15 @@ if __name__ == '__main__':
     player1_name = input("Player 1 please enter in your name: ")
     player1 = player(player1_name)
 
+    dealer = player("Python Dealer Terry")
+
     '''Deal a hand to the player'''
     player1.addCard(deck_o_cards.deal())
     player1.addCard(deck_o_cards.deal())
+
+    '''Deal a hand to the dealer'''
+    dealer.addCard(deck_o_cards.deal())
+    dealer.addCard(deck_o_cards.deal())
 
     print()
     print("The hand dealt to {} is:".format(player1.name))
