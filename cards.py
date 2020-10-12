@@ -57,7 +57,7 @@ class player:
         for x in range(len(self.card_deck)):
             self.score += self.card_deck[x].value
 
-        '''We do not want the players score to go above 21 or bust'''
+        '''We do not want the players score to go above 21 (bust)'''
         if self.score > 21:
             self.bust = True
             self.win = False
@@ -120,13 +120,16 @@ if __name__ == '__main__':
 
     print()
     print("The hand dealt to {} is:".format(player1.name))
-    print()
     player1.showHand()
 
     game_loop = True
 
     while game_loop:
 
+        print()
+        '''Check the players score and display it to them'''
+        player1.checkScore()
+        print("You currently have {}".format(player1.score))
         print()
         print("You can do one of the following:")
         print("1. Quit")
@@ -137,9 +140,11 @@ if __name__ == '__main__':
         if int(player1_choice) == 1:
             game_loop = False
         elif int(player1_choice) == 2:
-            pass
+            '''Give the player another card'''
+            player1.addCard(deck_o_cards.deal())
         elif int(player1_choice) == 3:
             pass
+
 
         '''Check the player score and determine if we have won or not'''
         if player1.bust:
