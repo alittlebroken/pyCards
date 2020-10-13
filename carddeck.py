@@ -4,6 +4,10 @@
     Paul Lockyer (plockyer@googlemail.com)
     2020-10-13
 '''
+
+# Imports
+from random import shuffle
+
 '''List of  suits'''
 suits = ['HEARTS','CLUBS','SPADES','DIAMONDS']
 
@@ -24,3 +28,31 @@ class card:
         self.suit = suit
         self.card = card
         self.value = value
+
+# Class to represent a deck of cards
+class deck:
+
+    # Class constructor
+    def __init__(self):
+
+        # Holds the deck of cards
+        self.card_deck = []
+
+        # Generate a deck of cards
+        for x in range(len(suits)):
+            for y in range(len(cards)):
+                self.card_deck.append(card(suits[x], cards[y], card_values[y]))
+
+        # Shuffle the deck
+        shuffle(self.card_deck)
+
+    # Print out the deck of cards
+    def showDeck(self):
+
+        for x in range(len(self.card_deck)):
+            print("{} of {}".format(self.card_deck[x].card,self.card_deck[x].suit))
+
+    # Deal a card from the deck
+    def deal(self):
+
+        return self.card_deck.pop()
