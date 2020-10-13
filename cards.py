@@ -9,71 +9,11 @@
 '''Import shuffle'''
 from random import shuffle
 
-'''List of  suits'''
-suits = ['HEARTS','CLUBS','SPADES','DIAMONDS']
+'''Import the card deck'''
+from carddeck import suits, cards, card_values, card
 
-'''List of card numbers'''
-cards = ['ACE',2,3,4,5,6,7,8,9,10,'JACK','QUEEN','KING']
-
-'''Values of the cards'''
-card_values = [1,2,3,4,5,6,7,8,9,10,10,10,10]
-
-'''Class to represent a single card in a deck'''
-class card:
-
-    '''
-    The class constructor, used to setup the card
-    Takes in the suit of the card and its bumber 1 to 14
-    '''
-    def __init__(self,suit, card, value):
-        self.suit = suit
-        self.card = card
-        self.value = value
-
-'''Class to represent a player'''
-class player:
-
-    card_deck = []
-
-    '''Class constructor'''
-    def __init__(self,name):
-        self.name = name
-        self.score = 0
-        self.bust = False
-        self.win = False
-
-    '''Add a card to the players hand'''
-    def addCard(self, card):
-        self.card_deck.append(card)
-
-
-    '''Check the players score'''
-    def checkScore(self):
-
-        '''Always reset the score to 0 for each check'''
-        self.score = 0
-
-        '''Now loop through the hand and add the values of the cards together'''
-        for x in range(len(self.card_deck)):
-            self.score += self.card_deck[x].value
-
-        '''We do not want the players score to go above 21 (bust)'''
-        if self.score > 21:
-            self.bust = True
-            self.win = False
-        elif self.score == 21:
-            self.bust = False
-            self.win = True
-        else:
-            self.bust = False
-            self.win = False
-
-    '''Show the players hand'''
-    def showHand(self):
-
-        for x in range(len(self.card_deck)):
-            print("{} of {}".format(self.card_deck[x].card,self.card_deck[x].suit))
-
+'''Import the player'''
+from player import player
 
 '''Class to represent a deck of cards'''
 class deck:
