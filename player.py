@@ -14,6 +14,7 @@ class player:
         self.bust = False
         self.win = False
         self.card_deck = []
+        self.stick = False
 
     '''Add a card to the players hand'''
     def addCard(self, card):
