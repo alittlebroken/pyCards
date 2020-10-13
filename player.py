@@ -7,14 +7,13 @@
 '''Class to represent a player'''
 class player:
 
-    card_deck = []
-
     '''Class constructor'''
     def __init__(self,name):
         self.name = name
         self.score = 0
         self.bust = False
         self.win = False
+        self.card_deck = []
 
     '''Add a card to the players hand'''
     def addCard(self, card):
